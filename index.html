@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Base styles applied to all devices */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-blend-mode: color-dodge;
+            min-height: 100vh;
+            background: linear-gradient(black, rgb(38, 37, 37)); 
+            color: azure;
+            overflow-x: hidden; /* Prevents horizontal scrolling */
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 30px;
+            padding: 20px 50px;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.7); /* Slightly dark background for readability */
+            z-index: 100;
+        }
+        a {
+            color: grey;
+            text-decoration: none;
+            font-size: 15px;
+            font-family: monospace;
+        }
+        a:hover {
+            transition: 0.5s ease-in;
+            color: white;
+            text-decoration: underline;
+            text-decoration-color: red;
+            text-decoration-thickness: 5px;
+        }
+        .name {
+            position: absolute;
+            top: 5px;
+            left: 20px;
+            color: grey;
+            font-family: cursive;
+            z-index: 101;
+        }
+
+        /* Hero Section */
+        .first_box {
+            color: lightgrey;
+            font-family: monospace;
+            text-align: center;
+            margin-top: 120px;
+            font-size: clamp(30px, 5vw, 50px);
+            padding: 0 20px;
+        }
+        .description {
+            color: lightgray;
+            font-family: monospace;
+            font-style: italic;
+            font-weight: 800;
+            margin: 30px auto;
+            width: 90%;
+            max-width: 600px;
+            padding: 25px;
+            border: 0.7px solid rgb(244, 244, 242);
+            border-radius: 50px;
+            background-color: rgb(24, 24, 24);
+            box-sizing: border-box;
+            text-align: center;
+        }
+        
+        /* Profile Info */
+        .pfpname {
+            color: white;
+            font-family: monospace;
+            font-size: 35px;
+            font-weight: 100;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .pfp {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: block;
+            margin: 20px auto;
+        }
+        .desc {
+            color: lightgray;
+            font-family: monospace;
+            font-size: 15px;
+            font-weight: 100;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        /* Decorative boxes (hidden on mobile to prevent overflow, can be re-styled later) */
+        .sidebox, .sidebox2 {
+            display: none;
+        }
+
+        /* Buttons */
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+        .navi, .navi2, .navi3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: monospace;
+            border-radius: 30px;
+            color: azure;
+            width: 200px;
+            height: 50px;
+            background-color: rgb(13, 5, 5);
+            transition: 0.5s ease-in;
+        }
+        .navi:hover, .navi2:hover, .navi3:hover {
+            scale: 1.1;
+            color: azure;
+            text-decoration: underline;
+            text-decoration-color: red;
+            text-decoration-thickness: 5px;
+        }
+
+        /* Quotes & Titles */
+        .quote1 {
+            border: 0.7px solid rgb(244, 244, 242);
+            background-color: rgb(93, 22, 22);
+            margin: 50px auto;
+            width: 90%;
+            max-width: 1000px;
+            min-height: 45px;
+            border-radius: 45px;
+            font-family: monospace;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            color: azure;
+            text-align: center;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .titles {
+            color: azure;
+            background-color: rgb(24, 24, 14);
+            border: 1px solid rgb(244, 244, 242);
+            border-radius: 20px;
+            font-family: monospace;
+            width: 200px;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            margin: 40px auto;
+        }
+
+        /* Grids for Work, Interests, Contact */
+        .gridded, .interests, .contact {
+            display: grid;
+            grid-template-columns: 1fr; /* 1 column on mobile */
+            gap: 30px;
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .small_box {
+            border: 0.7px solid rgb(244, 244, 242);
+            background-color: rgb(24, 24, 24);
+            border-radius: 30px;
+            padding: 30px;
+            box-sizing: border-box;
+            transition: 0.5s ease-in;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .small_box:hover {
+            scale: 1.05;
+        }
+        .mini-title {
+            color: azure;
+            font-family: monospace;
+            text-align: center;
+            margin-top: 0;
+        }
+        p {
+            color: lightgray;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+            font-size: 18px;
+        }
+        .project_link {
+            margin-top: 15px;
+        }
+
+        /* Journey Image */
+        .journey {
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .IMGBRD {
+            border: 5px solid white;
+            width: 100%;
+            max-width: 900px;
+            transition: 0.5s ease-in;
+            overflow: hidden;
+        }
+        .journeyIMG {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: 0.5s ease-in;
+        }
+        .IMGBRD:hover {
+            scale: 0.95;
+        }
+
+        /* Media Queries for larger screens */
+        @media (min-width: 768px) {
+            .gridded, .interests, .contact {
+                grid-template-columns: 1fr 1fr; /* Switches to 2 columns on tablets/laptops */
+            }
+        }
+        @media (max-width: 768px) {
+            nav {
+                justify-content: center; /* Centers navigation links on phones */
+                gap: 15px;
+                padding: 15px;
+            }
+            .name {
+                display: none; /* Hides the top-left name on very small screens so it doesn't overlap nav */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2 class="name">Aayushman</h2>
+    <nav>
+        <a href="#my-work">WORK</a>
+        <a href="#my-interests">INTERESTS</a>
+        <a href="#my-journey">JOURNEY</a>
+        <a href="#my-contact">CONTACT ME</a>
+    </nav>
+    <h1 class="first_box">"Hello, World.<br>I am Aayushman."</h1>
+    <h2 class="description">I am a student and tech enthusiast who blends logical problem-solving with creative expression. Whether I am developing code for software projects or producing music, I am passionate about using technology to build innovative and engaging experiences.</h2>
+    <h2 class="pfpname">aayushman parmar</h2>
+    <img class="pfp" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY8DaRyMgTdUULafpSGhwIfVdKKTfkWQUH9IEniaEwjg&s=10" alt="">
+    <h3 class="desc">HTML & CSS learner | STUDENT AT SST | MUSICIAN</h3>
+    <div class="sidebox"></div>
+    <div class="sidebox2"></div>
+    <br>
+    <section class="buttons">
+        <a class="navi" href="https://github.com/Aayushmanparmar">GITHUB</a>
+        <a class="navi2" href="https://www.linkedin.com/in/aayushman-parmar-2a2690405/">LINKEDIN</a>
+        <a class="navi3" href="https://codeforces.com/profile/aayushmanparmar">CODEFORCES</a>
+    </section>
+   
+    <h2 class="quote1">"Too many rules stifle innovation." - Sergey Brin</h2>
+    <br>
+    <br>
+    <h1 class="titles" id="my-work">MY WORK</h1>
+    <br>
+    <section class="gridded">
+        <div class="small_box">
+            <h3 class="mini-title">Programming</h3>
+            <p>Thought I am fairly new to the world of bugs and lines on lines of code, I have had my handful of experiences of creating mini-projects using the learned HTML & CSS concepts.Additonally, I have been keen to learning programming languages, such as JAVA, through which I have got a basic understanding of algorithmic apporach to work. A few examples of these can be found on my github.</p>
+        </div>
+        <div class="small_box">
+            <h3 class="mini-title">FLEXBOX-QUEST</h3>
+            <p>One such work that involves much learning from a beginner is my project of the 2D representation of a game, which shows the overall layout from a bird's-eye view.</p>
+            <a class="project_link" href="https://aayushmanparmar.github.io/FLEXBOX-QUEST/">View The Project</a>
+        </div>
+        <div class="small_box">
+            <h3 class="mini-title">Literature</h3>
+            <p>Reading novels and accounts of history has been a special part of my life which stands for various reasons alongside knowledge-base expansion. From writing my own stories to songs, literature continues to shape my outlook towards life.</p>
+        </div>
+        
+        <div class="small_box">
+            <h3 class="mini-title">MUSIC</h3>
+            <p>I was aware that I had a flair for songwriting since 2022. From them, I have been sharpening my words and have also got my hands on music production. This passion for music directly ties in with the development of my writing and speaking skills as well as honing my communication skills. </p>
+        </div>
+    </section>
+    <br>
+     <h2 class="quote1">"I'm having fun, I dropped out of college for this" - Technoblade</h2>
+    <br>
+    <br>
+    <h1 class="titles" id="my-interests">INTERESTS</h1>
+    <section class="interests">
+        <div class="small_box">
+            <h2 class="mini-title">Reading documentations</h2>
+        </div>
+        <div class="small_box">
+            <h2 class="mini-title">Music Production & Songwriting</h2>
+        </div>
+        <div class="small_box">
+            <h2 class="mini-title">Coding</h2>
+        </div>
+         <div class="small_box">
+            <h2 class="mini-title">Video Editing</h2>
+        </div>
+    </section>
+    <br>
+     <h2 class="quote1">"You can't just ask customers what they want..."" - Steve Jobs</h2>
+     <br>
+    <br>
+    <h1 class="titles" id="my-journey">MY JOURNEY</h1>
+    <section class="journey">
+        <div class="IMGBRD">
+            <img class="journeyIMG" src="https://images.unsplash.com/photo-1790597982615-8e63415442da?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MXx8fGVufDB8fHx8fA%3D%3D" alt="">
+        </div>
+    </section>
+    <br>
+     <h2 class="quote1">“The idea of a personal communicator in every pocket is a pipe dream driven by greed.” - Andy Groves</h2>
+     <br>
+    <br>
+    <h1 class="titles" id="my-contact">CONTACT ME</h1>
+    <section class="contact">
+        <div class="small_box">
+            <a class="mini-title" id="one" href="https://mail.google.com/mail/u/0/#inbox?compose=jrjtWvNBrSxzDLBnBzQQWsgmFxPGVdDVvdrhDlfPzVgTMBxXpxnHFhDhsmtqmBRhKsnqRbbb">EMAIL</a>
+        </div>
+        <div class="small_box">
+            <a class="mini-title" id="two" href="https://wa.me/1234567890">WHATSAPP</a>
+        </div>
+    </section>
+    <br>
+    <br>
+    <br>
+    <p>no AI was used in the making of this website.</p>
+</body>
+</html>
