@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media (min-width: 768px) {
+        html{
+            scroll-behavior: smooth;
+            align-items : center;
+            text-align : center;
+        }
+        body{
+            background-blend-mode: color-dodge;
+            height : 500vh;
+            background : linear-gradient(black,rgb(38, 37, 37)); 
+        }
+        nav{
+            position : fixed;
+            justify-content : end;
+            display : flex;
+            border-radius: 5px;
+            gap: 50px;
+            width : 100vw;
+            margin-top: -40px;
+            margin-left : -50px;  
+            text-decoration : none;          
+            z-index: 100;
+            color : azure;
+        }
+        a{
+            color : grey;
+            text-decoration: none;
+            font-size : 15px;
+            font-family :monospace;
+            flex-wrap: wrap;
+        }
+        a:hover{
+            transition :0.5s ease-in;
+            color : white;
+            text-decoration: underline;
+            text-decoration-color: red;
+            text-decoration-thickness: 5px;
+        }
+        .name{
+            position : sticky;
+            justify-content : start;
+            color : grey;
+            font-family : cursive;
+            margin-top : -5px;
+        }
+        .first_box{
+            color : lightgrey;
+        }
+        .first_box{
+            font-family: monospace;
+            display : flex;
+            justify-content: flex-start;
+            margin-top : 100px;
+            font-size: 50px;
+            margin-left: 50px;
+        }
+        .code{
+            align-items: start;
+            width : 500px;
+            height : 300px;
+            display:flex;
+            margin-top : -950px;
+        }
+        .description{
+            color : lightgray;
+            font-family: monospace;
+            font-style: italic;
+            font-weight: 800;
+            margin-left: 50px;
+            width: 400px;
+            padding : 25px;
+            border : 0.7px solid rgb(244, 244, 242);
+            border-radius : 50px;
+            font-style:italic;
+            background-color : rgb(24, 24, 24)
+        }
+        .pfp{
+            width : 150px;
+            height : 150px;
+            border-radius : 50%;
+            margin-top : 00px;
+            margin-left : 800px;
+        }
+        .pfpname{
+            color : white;
+            font-family: monospace;
+            font-size : 35px;
+            margin-left: 780px;
+            margin-top : -350px;
+            font-weight: 100;
+        }
+        .desc{
+            color : lightgray;
+            font-family: monospace;
+            font-size : 15px;
+            margin-left: 800px;
+            margin-top : 40px;
+            font-weight: 100;
+        }
+        /*
+        .sidebox{
+            border : 0.3px dotted white;
+            background-color : gray;
+            margin-top : -350px;
+            margin-left : 25px;
+            width : 530px;
+            height : 450px;
+            margin-top : -410px;
+            border-radius : 45px;
+        }
+            */
+        .sidebox2{
+            border : 0.7px solid rgb(244, 244, 242);
+            background-color : rgb(24, 24, 24);
+            margin-top : -350px;
+            margin-left : 870px;
+            width : 510px;
+            height : 400px;
+            margin-top : -380px;
+            border-radius : 45px;
+        }
+        .quote1{
+            border : 0.7px solid rgb(244, 244, 242);
+            background-color : rgb(93, 22, 22);
+            margin-top : -350px;
+            margin-left : 100px;
+            margin-top : 100px;
+            width : 1200px;
+            height : 45px;
+            border-radius : 45px;
+            font-family : monospace;
+            align-items : center;
+            justify-content : center;
+            display : flex;
+            color : azure;
+        }
+        .navi,.navi2,.navi3{
+            justify-content : center;
+            align-items : center;
+            font-family : monospace;
+            border-radius : 30px;
+            color : azure;
+            width : 200px;
+            margin : 5px;
+            height : 50px;
+            margin-top : 00px;
+            margin-left : 150px;
+            background-color:rgb(13, 5, 5);
+        }
+        .buttons{
+            margin-top : 60px;
+            margin-left : -100px;
+        }
+        .navi:hover{
+            transition :0.5s ease-in;
+            color : azure;
+            text-decoration: underline;
+            text-decoration-color: red;
+            text-decoration-thickness: 5px;
+        }
+        .titles{
+            color : azure;
+            background-color : rdgb(24,24,14);
+            border : 1px solid rgb(244,244,242);
+            border-radius : 20px;
+            font-family : monospace;
+            width : 200px;
+            height : 50px;
+            justify-content : center;
+            align-items : center;
+            display : flex;
+        }
+        
+        .gridded,.interests{
+            display : grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .small_box{
+            border : 0.7px solid rgb(244, 244, 242);
+            background-color : rgb(24, 24, 24);
+            border-radius : 30px;
+            width : 400px;
+            margin : 15px;
+            justify-content : center;
+            align-items : center;
+            margin-left : 150px;
+        }
+        .mini-title{
+            color : azure;
+            font-family : monospace;
+            text-align : center;
+        }
+        p{
+            color : lightgray;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align : center;
+            font-size : 20px;
+        }
+        .project_link{
+            text-align : center;
+            align-items : center;
+            display : flex;
+            justify-content : flex;
+            margin-left : 125px;
+        }
+
+        .journeyIMG{
+            display : flex;
+            justify-content : center;
+            align-items: center;
+            width : 100vw;
+            height : 100vh;
+        }
+        .IMGBRD{
+            border : 5px solid white;
+            width : 100vw;
+            height : 100vh;
+        }
+        .contact{
+            display : grid;
+            grid-template-columns: 1fr 1fr;
+            margin-left: 100px;
+        }
+
+        .small_box,.sidebox,.navi.navi2.navi3:hover{
+            scale : 1.2;
+            transition :0.5s ease-in;
+        }
+        .journeyIMG:hover,.IMGBRD{
+            scale : 0.9;
+        }
+    }
+    </style>
+</head>
+<body>
+    <h2 class ="name">Aayushman</h2>
+    <nav>
+        <a href="#my-work">WORK</a>
+        <a href="my-interests">INTERESTS</a>
+        <a href="my-journey">JOURNEY</a>
+        <a href="my-contact">CONTACT ME</a>
+    </nav>
+    <h1 class = "first_box">"Hello, World.<br>I am Aayushman."</h1>
+    <h2 class ="description">I am a student and tech enthusiast who blends logical problem-solving with creative expression. Whether I am developing code for software projects or producing music, I am passionate about using technology to build innovative and engaging experiences.</h2>
+        <h2 class = "pfpname">aayushman parmar</h2>
+        <img class = "pfp" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY8DaRyMgTdUULafpSGhwIfVdKKTfkWQUH9IEniaEwjg&s=10" alt="">
+        <h3 class ="desc">HTML & CSS learner | STUDENT AT SST | MUSICIAN</h3>
+        <div class = "sidebox">
+        </div>
+        <div class ="sidebox2">
+        </div>
+        <br>
+        <section class = "buttons">
+        <a class ="navi" href ="https://github.com/Aayushmanparmar">GITHUB</a>
+        <a class ="navi2" href ="kedin.com/in/aayushman-parmar-2a2690405/">LINKEDIN</a>
+        <a class ="navi3" href = "https://codeforces.com/profile/aayushmanparmar">CODEFORCES</a>
+        </section>
+       
+        <h2 class = "quote1">"If you wish to defeat me, train for another thousand years." - Technoblade</h2>
+        <br>
+        <br>
+        <h1 class = "titles" id = "my-work">MY WORK</h1>
+        <br>
+        <section class = "gridded">
+            <div class ="small_box">
+                <h3 class = "mini-title">Programming</h3>
+                <p>Thought I am fairly new to the world of bugs and lines on lines of code, I have had my handful of experiences of creating mini-projects using the learned HTML & CSS concepts.Additonally, I have been keen to learning programming languages, such as JAVA, through which I have got a basic understanding of algorithmic apporach to work. A few examples of these can be found on my github.</p>
+            </div>
+            <div class = "small_box">
+                <h3 class = "mini-title">FLEXBOX-QUEST</h3>
+                <p>One such work that involves much learning from a beginner is my project of the 2D representation of a game, which shows the overall layout from a bird's-eye view.</p>
+                <a class ="project_link" href="https://github.com/Aayushmanparmar/FLEXBOX-QUEST.git">View The Project</a>
+            </div>
+            <div class ="small_box">
+                <h3 class =" mini-title">Literature</h3>
+                <p>Reading novels and accounts of history has been a special part of my life which stands for various reasons alongside knowledge-base expansion. From writing my own stories to songs, literature continues to shape my outlook towards life.</p>
+            </div class ="small_box">
+            
+            <div class = "small_box">
+                <h3 class = "mini-title">MUSIC</h3>
+                <p>I was aware that I had a flair for songwriting since 2022. From them, I have been sharpening my words and have also got my hands on music production. This passion for music directly ties in with the development of my writing and speaking skills as well as honing my communication skills. </p>
+            </div>
+        </section>
+        <br>
+         <h2 class = "quote1">"I'm having fun, I dropped out of college for this" - Technoblade</h2>
+        <br>
+        <br>
+        <h1 class = "titles" id = "my-interests">INTERESTS</h1>
+        <section class = "interests">
+            <div class = "small_box">
+                <h2 class = "mini-title">Reading documentations</h2>
+            </div>
+            <div class = "small_box">
+                <h2 class = "mini-title">Music Production & Songwriting</h2>
+            </div>
+            <div class = 'small_box'>
+                <h2 class = "mini-title">Coding</h2>
+            </div>
+             <div class = 'small_box'>
+                <h2 class = "mini-title">Video Editing</h2>
+            </div>
+        </section>
+        <br>
+         <h2 class = "quote1">"I will sell that dog for a Starbucks coupon that doesn't even work" - Technoblade</h2>
+         <br>
+        <br>
+        <h1 class = "titles" id = "my-journey">MY JOURNEY</h1>
+        <section class = "journey">
+            <div class = "IMGBRD">
+                <img class ="journeyIMG" src="https://images.unsplash.com/photo-1790597982615-8e63415442da?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MXx8fGVufDB8fHx8fA%3D%3D" alt="">
+            </div>
+        </section>
+        <br>
+         <h2 class = "quote1">"I dropkicked that child in self defense... Please officer you gotta believe me" - Technoblade</h2>
+         <br>
+        <br>
+        <h1 class = "titles" id = "my-contact">CONTACT ME</h1>
+        <section class = "contact">
+            <div class = "small_box">
+                <h2 class = "mini-title" id = "one">EMAIL</h2>
+                <p>aayushman26bcs10047@sst.scaler.com</p>
+            </div>
+            <div class = "small_box">
+                <h2 class = "mini-title" id = "two">LINKEDIN</h2>
+                <p>aayushmanparmar</p>
+            </div>
+        </section>
+        <br>
+        <br>
+        <br>
+        <p class>no AI was used in the making of this website. big brain boy.</p>
+</body>
+</html>
